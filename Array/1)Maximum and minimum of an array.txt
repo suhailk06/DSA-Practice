@@ -1,0 +1,47 @@
+//java
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] data={22, 14, 8, 17, 35, 3};
+        int min = data[0];
+        int max = data[0];
+
+        for (int i = 1; i < data.length; i++) {
+            if (data[i] < min)
+                min = data[i];
+
+            if (data[i] > max)
+            max = data[i];
+        }
+
+System.out.println("Min: " + min);
+System.out.println("Max: " + max);
+        
+    }
+}
+
+
+//python
+data=[22, 14, 8, 17, 35, 3]
+print(f"min:{min(data)}")
+print(f"max:{max(data)}")
+
+
+//c
+#include <stdio.h>
+
+int main() {
+    int data[]={22, 14, 8, 17, 35, 3};
+    int n=sizeof(data) / sizeof(data[0]);
+    int min=data[0];
+    int max=data[0];
+    for(int i=1;i<n;i++){
+        if(min>data[i]){
+            min=data[i];
+        }
+        if(max<data[i]){
+            max=data[i];
+        }
+    }
+    printf("min:%d \nmax:%d",min,max);
+    return 0;}

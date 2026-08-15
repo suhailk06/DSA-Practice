@@ -1,0 +1,57 @@
+//java
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {7, 3, 2, 4, 9, 12, 56}; 
+        int m = 3;
+        
+        Arrays.sort(arr);
+        
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i <= arr.length - m; i++) {
+            min=Math.min(arr[i + m - 1] - arr[i],min);
+        }
+        
+        System.out.println(min);
+    }
+}
+
+
+//python
+data=[7, 3, 2, 4, 9, 12, 56]
+m=3
+data=sorted(data)
+minval=data[0]
+for i in range(len(data)-m):
+    minval=min(minval,data[m+i-1]-data[i])
+
+print(minval)
+
+
+
+//c
+
+#include <stdio.h>
+
+int main() {
+    int data[] = {7, 3, 2, 4, 9, 12, 56}; 
+    int m = 3;
+    int l=sizeof(data)/sizeof(data[0]);
+    int min=data[0];
+    for(int i=0;i<l;i++){
+        for(int j=1;j<l;j++){
+            if(data[j]<data[j-1]){
+                int temp=data[j];
+                data[j]=data[j-1];
+                data[j-1]=temp;
+            }
+        }
+    }
+    for (int i = 0; i <= l - m; i++) {
+        if(min>(data[m-1+i]-data[i])){
+            min=data[m-1+i]-data[i];
+        }
+    }
+    printf("%d",min);
+    return 0;
+}

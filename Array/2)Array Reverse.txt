@@ -1,0 +1,41 @@
+//java
+
+class Main {
+    public static void main(String[] args) {
+        int[] data={1, 4, 3, 2, 6, 5};
+        int n=data.length;
+        for (int i = 0; i < n/2; i++) {
+            int temp=data[i];
+            data[i]=data[n-1-i];
+            data[n-i-1]=temp;
+            
+        }
+        System.out.println("reverse data");
+        for(int i=0;i<n;i++){
+            System.out.print(data[i]+" ");
+            }
+        
+    }
+}
+
+//python
+data=[1, 4, 3, 2, 6, 5]
+print(f"original data:{data[:]}")
+print(f"original data:{data[::-1]}")
+
+
+//c
+#include <stdio.h>
+
+int main() {
+    int data[]={1, 4, 3, 2, 6, 5};
+    int n=sizeof(data) / sizeof(data[0]);
+    for(int i=0;i<n/2;i++){
+        int temp=data[i];
+        data[i]=data[n-1-i];
+        data[n-i-1]=temp;
+    }
+    for(int i=0;i<n;i++){
+    printf("%d ",data[i]);
+    }
+    return 0;}
