@@ -1,0 +1,70 @@
+//java
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int n = nums.length;
+
+        int i = n - 2;
+
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
+        }
+
+        if (i >= 0) {
+            int j = n - 1;
+
+            while (nums[j] <= nums[i]) {
+                j--;
+            }
+
+
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+
+        int left = i + 1;
+        int right = n - 1;
+
+        while (left < right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        int[] data={1, 2, 3, 6, 5,4};
+        Solution obj=new Solution();
+        obj.nextPermutation(data);
+        for(int i=0;i<data.length;i++){
+        System.out.print(data[i]+" ");}
+    }
+}
+
+
+
+
+//python
+def solve(nums):
+    i=len(nums)-2
+    while(i>=0 and nums[i]>=nums[i+1]):
+        i-=1
+    if i>=0:
+        j=len(nums)-1
+        while(nums[j]<=nums[i]):
+            j-=1
+        nums[j],nums[i]=nums[i],nums[j]
+    left=i+1
+    right=len(nums)-1
+    while(left<right):
+        nums[right],nums[left]=nums[left],nums[right]
+        left+=1
+        right-=1
+
+data=[1, 2, 3, 6, 5,4]
+solve(data)
+print(data)

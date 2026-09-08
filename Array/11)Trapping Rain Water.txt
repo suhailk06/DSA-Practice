@@ -1,0 +1,75 @@
+//java
+class Solution {
+    public int trap(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+
+        int leftMax = 0;
+        int rightMax = 0;
+        int water = 0;
+
+        while (left <= right) {
+
+            if (height[left] <= height[right]) {
+
+                if (height[left] >= leftMax) {
+                    leftMax = height[left];
+                } else {
+                    water += leftMax - height[left];
+                }
+
+                left++;
+
+            } else {
+
+                if (height[right] >= rightMax) {
+                    rightMax = height[right];
+                } else {
+                    water += rightMax - height[right];
+                }
+
+                right--;
+            }
+        }
+
+        return water;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        int[] data={0,1,0,2,1,0,1,3,2,1,2,1};
+        Solution obj=new Solution();
+        System.out.println(obj.trap(data));
+    }
+}
+
+
+
+//python
+def trap(height):
+    stack = []
+    ans = 0
+
+    for i in range(len(height)):
+
+        while stack and height[i] > height[stack[-1]]:
+
+            bottom = stack.pop()
+
+            if not stack:
+                break
+
+            left = stack[-1]
+
+            width = i - left - 1
+
+            h = min(height[left], height[i]) - height[bottom]
+
+            ans += width * h
+
+        stack.append(i)
+
+    return ans
+
+data=[0,1,0,2,1,0,1,3,2,1,2,1]
+print(trap(data))

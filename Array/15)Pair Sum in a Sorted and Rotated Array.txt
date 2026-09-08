@@ -1,0 +1,35 @@
+//java
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {11, 15, 6, 8, 9, 10}; 
+        int target = 16;
+        boolean flag=false;
+        HashSet<Integer> set=new HashSet<>();
+        for(int i=0;i<arr.length;i++){
+            if(set.contains(target-arr[i])){
+                System.out.println("the pair is "+arr[i]+"&"+(target-arr[i]));
+                flag=true;
+            }
+            set.add(arr[i]);
+        }
+        if(!flag){
+        System.out.println("no such pair exits");
+    }}
+}
+
+
+
+//python
+arr= [11, 15, 6, 8, 9, 10]
+target = 16
+flag=False
+data=[]
+for i in range(len(arr)):
+  if target-arr[i] in data:
+    print("the pair is ",arr[i],"&",target-arr[i])
+    flag=True
+    break
+  data.append(arr[i])
+if not flag:
+  print("no such pair exist")
