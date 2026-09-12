@@ -1,0 +1,17 @@
+//java
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 4, 3, 48, 6, 2, 33, 53, 10};
+        int k = 4;
+        Arrays.sort(arr);
+        System.out.println("kth smallest element in the given array is "+arr[k-1]);
+    }
+}
+
+
+//python
+arr = [10, 5, 4, 3, 48, 6, 2, 33, 53, 10]
+k = 4
+arr.sort()
+print(f"kth smallest element in the given array is {arr[k-1]}")
